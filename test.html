@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="http://searls.github.io/jasmine-all/jasmine-all-min.js"></script>      
     <title>Document</title>
 </head>
 <body>
@@ -17,8 +18,17 @@
 
     <script>
         function myFunction() {
+            console.log('clickkkkkk');
             document.getElementById("demo").innerHTML = "Hello World";
         }
+    </script>
+
+    <script>
+        describe('Show message test', function () {
+                it('makes me yell "yay!"', function () {
+                    expect(document.getElementById("demo")).not.toBeNull();
+                });
+            });
     </script>
 
 </body>
