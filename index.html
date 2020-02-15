@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="http://searls.github.io/jasmine-all/jasmine-all-min.js"></script>      
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Click Me</h1>
+
+    <p>Click the button to trigger a function that will output "Hello World" in a p element with id="demo".</p>
+
+    <button onclick="myFunction()">Click me</button>
+
+    <p id="demo"></p>
+
+    <script>
+        function myFunction() {
+            console.log('clickkkkkk');
+            document.getElementById("demo").innerHTML = "Hello World";
+        }
+    </script>
+
+    <script>
+        describe('Show message test', function () {
+                it('makes me yell "yay!"', function () {
+                    expect(document.getElementById("demo")).not.toBeNull();
+                });
+            });
+    </script>
+
+</body>
+</html>
