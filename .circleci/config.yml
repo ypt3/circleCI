@@ -5,4 +5,21 @@ jobs:
       - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
     steps:
       - checkout # check out the code in the project directory
-      - run: echo "hello world" # run the `echo` command
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+             git push https://heroku:$c69bc344-2b68-4b25-8929-666e8bd93e01@git.heroku.com/$circlecitest1.git master
+             
+
+workflows:
+   version: 2
+   build-deploy:
+     jobs:
+       - build
+       - deploy:
+           requires:
+             - build # only run deploy-via-git job if the build job has completed
+           filters:
+             branches:
+               only: master # only run deploy-via-git job on master branch
+      
