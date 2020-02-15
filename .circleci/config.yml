@@ -1,23 +1,13 @@
-version: 2
+version: 2.1
 
- jobs:
-   build:
-     ...
-   deploy:
-     docker:
-       - image: <docker-image-name-tag>
-     steps:
-       - checkout
-       - run:
-           name: Deploy Master to Heroku
-           command: |
-             git push https://heroku:$c69bc344-2b68-4b25-8929-666e8bd93e01@git.heroku.com/$circlecitest1.git master
+ orbs:
+   heroku: circleci/heroku@x.y # Use the Heroku orb in your config
+
  workflows:
-   version: 2
-   build-deploy:
+   heroku_deploy:
      jobs:
        - build
-       - deploy:
+       - heroku/deploy-via-git
            requires:
              - build # only run deploy-via-git job if the build job has completed
            filters:
