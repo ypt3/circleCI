@@ -10,23 +10,23 @@
 
     <h1>Click Me</h1>
 
-    <p>Click the button to trigger a function that will output "Hello World" in a p element with id="demo".</p>
+    <p>Click the button to trigger a function that will output "Hello World."</p>
 
     <button onclick="myFunction()">Click me</button>
 
-    <p id="demo"></p>
+    <p id="test"></p>
 
     <script>
         function myFunction() {
             console.log('clickkkkkk');
-            document.getElementById("demo").innerHTML = "Hello World";
+            document.getElementById("test").innerHTML = "Hello World";
         }
     </script>
 
     <script>
         describe('Show message test', function () {
                 it('test succedd, you are good to go!!', function () {
-                    expect(document.getElementById("demo")).not.toBeNull();
+                    expect(document.getElementById("test")).not.toBeNull();
                 });
             });
     </script>
